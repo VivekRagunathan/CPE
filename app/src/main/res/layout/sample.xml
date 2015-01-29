@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/activity_padding"
+                tools:context=".ToDoActivity">
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:text="@string/app_display_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:gravity="top" />
+
+    <ListView
+        android:id="@+id/todoList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAddItem"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appTitle"/>
+
+    <EditText
+        android:id="@+id/textAddItem"
+        android:inputType="text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/btnAddItem"
+        android:layout_alignTop="@+id/btnAddItem"
+        android:hint="@string/add_item_hint"
+        android:text="QWERTY !!!"/>
+
+    <Button
+        android:id="@+id/btnAddItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClickAddToDo"
+        android:text="@string/add_btn_title"
+        android:layout_alignParentTop="false"
+        />
+
+</RelativeLayout>
