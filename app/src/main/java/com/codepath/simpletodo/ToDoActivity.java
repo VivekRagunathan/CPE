@@ -58,9 +58,6 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 		todoList = (ListView) findViewById(R.id.todoList);
 		undoBar = new UndoBar(this);
 
-		getBaseContext();
-		getApplicationContext();
-
 		try {
 			final ArrayList<Map<String, Object>> todoList = loadAllToDos();
 			items.addAll(todoList);
@@ -137,6 +134,8 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 				break;
 		}
 
+		System.out.println(sb.toString());
+
 		saveToDoList(items);
 		itemsAdapter.notifyDataSetChanged();
 		undoBar.show(sb.toString());
@@ -167,21 +166,21 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 				View view = super.getView(position, convertView, parent);
 
 
-				final Map<String, Object> todo  = items.get(position);
-				final String name               = todo.get(TODO_NAME).toString();
-				final String created            = todo.get(TODO_CREATED).toString();
-				final String archived           = todo.get(TODO_ARCHIVED).toString();
+				final Map<String, Object> todo = items.get(position);
+				final String name = todo.get(TODO_NAME).toString();
+				final String created = todo.get(TODO_CREATED).toString();
+				final Object raw = todo.get(TODO_ARCHIVED);
+				final String archived = raw == null ? "" : raw.toString();
 
 				TextView text1                  = (TextView) view.findViewById(android.R.id.text1);
-				TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+				TextView text2                  = (TextView) view.findViewById(android.R.id.text2);
 
 				text1.setText(name);
 				text2.setText(created);
 
-				if (archived.length() > 0) {
-					text1.setTextColor(Color.GRAY);
-					text2.setTextColor(Color.GRAY);
-				}
+				final int color = archived.length() > 0 ? Color.GRAY : Color.BLACK;
+				text1.setTextColor(color);
+				text2.setTextColor(color);
 
 				return view;
 			}
@@ -278,27 +277,17 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 		map.put(TODO_DESCRIPTION, description);
 		map.put(TODO_CREATED, Utils.IsNullOrEmpty(created) ? Utils.ToAppDateFormat(null) : created);
 		map.put(TODO_DEADLINE, deadline == null ? "" : deadline);
-		map.put(TODO_ARCHIVED, archived == null ? "" : deadline);
+		map.put(TODO_ARCHIVED, archived == null ? "" : archived);
 
 		return map;
 	}
 
-    private HashMap<String, Object> createToDoItem(JSONObject item) throws ParseException {
-        Object value = item.opt(TODO_NAME);
-	    final String name = Utils.IsNullOrEmpty(value) ? "Unnamed" : value.toString();
-
-	    value = item.opt(TODO_DESCRIPTION);
-	    final String description = value == null ? "" : value.toString();
-
-        value = item.opt(TODO_CREATED);
-		// final Date created = Utils.IsNullOrEmpty(value) ? new Date() : Utils.ParseDate(value.toString());
-	    final String created = value == null ? "" : value.toString();
-
-        value = item.opt(TODO_DEADLINE);
-	    final String deadline = value == null ? null : value.toString();
-
-	    value = item.opt(TODO_ARCHIVED);
-	    final String archived = value == null ? null : value.toString();
+    private HashMap<String, Object> createToDoItem(JSONObject item) throws ParseException, JSONException {
+	    final String name           = ReadAsString(item, TODO_NAME, "Unnamed");
+	    final String description    = ReadAsString(item, TODO_DESCRIPTION, "");
+	    final String created        = ReadAsString(item, TODO_CREATED, Utils.ToAppDateFormat(null));
+	    final String deadline       = ReadAsString(item, TODO_DEADLINE, "");
+	    final String archived       = ReadAsString(item, TODO_ARCHIVED, "");
 
         return createToDoItem(name,
 		        created,
@@ -306,6 +295,12 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 		        archived,
 		        description);
     }
+
+	private static String ReadAsString(JSONObject item, String propName, String fallback) throws JSONException {
+		return !item.has(propName) || item.isNull(propName)
+				? fallback
+				: item.get(propName).toString();
+	}
 
 	@Override
 	public Activity getHost() {
@@ -320,6 +315,6 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 
 	@Override
 	public void onUndoViewDismissed(View view) {
-		Toast.makeText(this, "Dismissed!", Toast.LENGTH_LONG).show();
+	// Toast.makeText(this, "Dismissed!", Toast.LENGTH_LONG).show();
 	}
 }
