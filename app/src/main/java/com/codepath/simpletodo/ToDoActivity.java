@@ -2,6 +2,7 @@ package com.codepath.simpletodo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -17,6 +18,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.codepath.shared.Utils;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
@@ -84,8 +87,16 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+	        final Intent intent = new Intent(this, SettingsActivity.class);
+	        startActivity(intent);
             return true;
         }
+
+	    if (id == R.id.action_about) {
+		    final Intent intent = new Intent(this, AboutActivity.class);
+		    startActivity(intent);
+		    return true;
+	    }
 
         return super.onOptionsItemSelected(item);
     }
@@ -257,6 +268,11 @@ public class ToDoActivity extends ActionBarActivity implements IUndoHost {
 			dialog.show();
 			finish();
 		}
+	}
+
+	public void clearAllToDos() {
+		items.clear();
+		saveToDoList(items);
 	}
 
 	private String loadSampleTasks() throws IOException {

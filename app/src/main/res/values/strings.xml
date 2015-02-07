@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">SimpleToDo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -11,7 +12,12 @@
     <string name="hide_archived">Hide Archived</string>
     <string name="settings_title">Application Settings</string>
     <string name="clear_all_todos">Clear All ToDos</string>
-
     <string name="undo_bar_message">Action performed.</string>
     <string name="undo">Undo</string>
+    <string name="title_activity_about">About</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="about_main_text">Simple TODO Application</string>
+    <string name="about_version_text">v0.1 All © All Rights Reserved</string>
+
 </resources>
