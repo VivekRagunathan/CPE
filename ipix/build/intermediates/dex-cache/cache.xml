@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/vivekragunathan/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.0/7ff0e000d1e27e356567f56c92af3b8ab912636f/picasso-2.5.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7ff0e000d1e27e356567f56c92af3b8ab912636f">
+        <dex dex="/Users/vivekragunathan/Projects/iPix/app/build/intermediates/pre-dexed/debug/picasso-2.5.0-df06416a84908bdb42c44df4dfb091189ddd3abd.jar" />
+    </item>
+    <item
+        jar="/Users/vivekragunathan/Projects/iPix/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/vivekragunathan/Projects/iPix/app/build/intermediates/pre-dexed/debug/classes-994fd697455369a027eb06df0432705390965d97.jar" />
+    </item>
+    <item
+        jar="/Users/vivekragunathan/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.5/77bf7cacf9cefe19dc105e5425d2eb1bb5285881/android-async-http-1.4.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="77bf7cacf9cefe19dc105e5425d2eb1bb5285881">
+        <dex dex="/Users/vivekragunathan/Projects/iPix/app/build/intermediates/pre-dexed/debug/android-async-http-1.4.5-7a91e34431d97194b1f5b92bc3d74accbb9671db.jar" />
+    </item>
+    <item
+        jar="/Users/vivekragunathan/Projects/iPix/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/vivekragunathan/Projects/iPix/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-56ab3cf7c4727aba202fa0b94c3834e72c8a188f.jar" />
+    </item>
+    <item
+        jar="/Users/vivekragunathan/Library/Developer/Android/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/Users/vivekragunathan/Projects/iPix/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-1f80a0da997c03616d9367bc8d47b709f8dce732.jar" />
+    </item>
+
+</items>

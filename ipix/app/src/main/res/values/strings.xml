@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">iPix</string>
+    <string name="app_title">iPix Photo Stream</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_author_pic">Author Pic</string>
+
+    <string name="media_missing">Media Missing!</string>
+    <string name="caption_missing">caption missing…</string>
+    <string name="text_content_missing">content missing…</string>
+    <string name="heart_symbol">❤</string>
+    <string name="view_all_comments">View all xxx comments</string>
+
+</resources>
