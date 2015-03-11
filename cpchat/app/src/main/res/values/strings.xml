@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">The Simplest Chat</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_send">SEND</string>
+    <string name="content_missing">content_missing</string>
+    <string name="text_enter_message">Enter message</string>
+</resources>
