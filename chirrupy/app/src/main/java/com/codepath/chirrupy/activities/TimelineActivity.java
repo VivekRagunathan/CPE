@@ -89,14 +89,14 @@ public class TimelineActivity extends ActionBarActivity {
 		switch (id) {
 			case R.id.action_compose: {
 				final Intent intent = new Intent(this, ComposeActivity.class);
-				intent.putExtra("user", loggedInUser);
+				intent.putExtra(ProfileActivity.USER, loggedInUser);
 				startActivityForResult(intent, ActivityRequestCodes.Compose.getValue());
 				break;
 			}
 
 			case R.id.action_profile: {
 				final Intent intent = new Intent(this, ProfileActivity.class);
-				intent.putExtra("user", loggedInUser);
+				intent.putExtra(ProfileActivity.USER, loggedInUser);
 				startActivityForResult(intent, ActivityRequestCodes.Profile.getValue());
 				break;
 			}

@@ -9,6 +9,6 @@ public class MentionsFragment extends TweetsFragment {
 			resetTimeline();
 		}
 
-		// getTwitterClient().getMentions(new TwitterResponseHandler());
+		getTwitterClient().getMentionsTimeline(new TwitterResponseHandler());
 	}
 }

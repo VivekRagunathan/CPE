@@ -2,7 +2,6 @@ package com.codepath.chirrupy.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -75,7 +74,7 @@ public class ComposeActivity extends ActionBarActivity {
 
 		ImageView ivProfileImage    = (ImageView) findViewById(R.id.ivProfileImage);
 		TextView tvUserName         = (TextView) findViewById(R.id.tvUserName);
-		TextView tvScreenName       = (TextView) findViewById(R.id.tvScreenName);
+		TextView tvScreenName       = (TextView) findViewById(R.id.tvHandle);
 		EditText etBody             = (EditText) findViewById(R.id.etBody);
 		this.tvRemainingLength      = (TextView) findViewById(R.id.tvRemaining);
 
