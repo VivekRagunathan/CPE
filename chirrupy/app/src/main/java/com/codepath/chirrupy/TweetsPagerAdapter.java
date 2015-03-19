@@ -24,7 +24,7 @@ public class TweetsPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public Fragment getItem(int position) {
 		switch (position) {
-			case 0:     return tlFragment; //new TimelineFragment();
+			case 0:     return tlFragment;
 			case 1:     return new MentionsFragment();
 			default:    return null;
 		}

@@ -34,13 +34,8 @@ import java.util.ArrayList;
 
 public class TimelineActivity extends ActionBarActivity {
 
-	private TwitterClient twitterClient;
-	private User          loggedInUser;
-
-	private ArrayList<Tweet>   tweets;
-	private TweetsArrayAdapter tweetsAdapter;
-	private ListView           lvTweets;
-	private SwipeRefreshLayout rlTimeline;
+	private TwitterClient    twitterClient;
+	private User             loggedInUser;
 	private TimelineFragment timelineFragment;
 
 	@Override
@@ -89,7 +84,7 @@ public class TimelineActivity extends ActionBarActivity {
 		switch (id) {
 			case R.id.action_compose: {
 				final Intent intent = new Intent(this, ComposeActivity.class);
-				intent.putExtra(ProfileActivity.USER, loggedInUser);
+				intent.putExtra(ComposeActivity.USER, loggedInUser);
 				startActivityForResult(intent, ActivityRequestCodes.Compose.getValue());
 				break;
 			}
@@ -122,37 +117,5 @@ public class TimelineActivity extends ActionBarActivity {
 		Toast.makeText(this, "Bye ...", Toast.LENGTH_SHORT).show();
 		moveTaskToBack(true);
 		super.onBackPressed();
-	}
-
-	private void resetTimeline() {
-		Tweet.LastLowestId = Long.MAX_VALUE;
-		tweetsAdapter.clear();
-	}
-
-	private void populateTimeline(boolean reset /*, int page*/) {
-		if (reset) {
-			resetTimeline();
-		}
-
-		twitterClient.getHomeTimeline(new JsonHttpResponseHandler() {
-			@Override
-			public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-				Log.d(Helpers.LOG_TAG, "{getHomeTimeline}: " + json.toString());
-				final ArrayList<Tweet> items = Tweet.FromJsonArray(json);
-				tweetsAdapter.addAll(items);
-
-				if (rlTimeline != null) {
-					rlTimeline.setRefreshing(false);
-				}
-			}
-
-			@Override
-			public void onFailure(int statusCode,
-			                      Header[] headers,
-			                      Throwable throwable,
-			                      JSONObject errorResponse) {
-				Log.d(Helpers.LOG_TAG, "getHomeTimeline FAILED! " + statusCode + ", " + errorResponse);
-			}
-		});
 	}
 }

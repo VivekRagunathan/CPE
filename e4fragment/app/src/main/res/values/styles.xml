@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="DefaultAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+</resources>

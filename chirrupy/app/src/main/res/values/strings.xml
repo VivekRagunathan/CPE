@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Chirrupy</string>
+    <string name="login_label">CONNECT WITH TWITTER</string>
+
+    <string name="title_activity_timeline">Chirrupy</string>
+    <string name="title_activity_compose">Compose</string>
+
+    <string name="action_compose">Compose</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_tweet">Tweet</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="text_content_missing">content missing</string>
+    <string name="text_starting_count">140</string>
+    <string name="preference_file_key">com.codepath.chirrupy.preferences</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="default_num_tweets_text">xxx\nTWEETS</string>
+    <string name="default_num_followers_text">yyy\nFOLLOWERS</string>
+    <string name="default_num_following_text">zzz\nFOLLOWING</string>
+    <string name="action_search">Search</string>
+
+    <style name="ButtonText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+
+</resources>

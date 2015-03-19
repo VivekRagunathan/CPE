@@ -31,7 +31,6 @@ public abstract class TweetsFragment extends Fragment {
 	private TwitterClient      twitterClient;
 	private ArrayList<Tweet>   tweets;
 	private TweetsArrayAdapter tweetsAdapter;
-	private ListView           lvTweets;
 	private SwipeRefreshLayout srlTweets;
 
 	@Override
@@ -50,9 +49,9 @@ public abstract class TweetsFragment extends Fragment {
 	                         @Nullable Bundle savedInstanceState) {
 
 
-		final View view = inflater.inflate(R.layout.fragment_tweets, container, false);
-		lvTweets        = (ListView) view.findViewById(R.id.lvTweets);
-		srlTweets       = (SwipeRefreshLayout) view.findViewById(R.id.srlTweets);
+		final View view         = inflater.inflate(R.layout.fragment_tweets, container, false);
+		final ListView lvTweets = (ListView) view.findViewById(R.id.lvTweets);
+		srlTweets               = (SwipeRefreshLayout) view.findViewById(R.id.srlTweets);
 
 		lvTweets.setOnScrollListener(new EndlessScrollListener() {
 			@Override

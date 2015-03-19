@@ -28,10 +28,11 @@ import org.apache.http.Header;
 import org.json.JSONObject;
 
 public class ComposeActivity extends ActionBarActivity {
-	public static final int MAX_BODY_LENGTH = 140;
+	public static final String USER            = "user";
+	public static final int    MAX_BODY_LENGTH = 140;
 
 	private TwitterClient twitterClient;
-	private TextView tvRemainingLength;
+	private TextView      tvRemainingLength;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class ComposeActivity extends ActionBarActivity {
 		twitterClient = ChirrupyApplication.getRestClient();
 		Helpers.StyleActionBar(getSupportActionBar());
 
-		final User loggedInUser = getIntent().getParcelableExtra("user");
+		final User loggedInUser = getIntent().getParcelableExtra(USER);
 		initializeUI(loggedInUser);
 
 		//loadUserProfile();
@@ -60,8 +61,8 @@ public class ComposeActivity extends ActionBarActivity {
 
 		switch (id) {
 			case R.id.action_tweet:
-				final TextView etBody   = (TextView) findViewById(R.id.etBody);
-				final String message    = etBody.getText().toString();
+				final TextView etBody = (TextView) findViewById(R.id.etBody);
+				final String message = etBody.getText().toString();
 				tweetMessage(message);
 				return true;
 		}
@@ -74,12 +75,12 @@ public class ComposeActivity extends ActionBarActivity {
 
 		ImageView ivProfileImage    = (ImageView) findViewById(R.id.ivProfileImage);
 		TextView tvUserName         = (TextView) findViewById(R.id.tvUserName);
-		TextView tvScreenName       = (TextView) findViewById(R.id.tvHandle);
+		TextView tvHandle           = (TextView) findViewById(R.id.tvHandle);
 		EditText etBody             = (EditText) findViewById(R.id.etBody);
 		this.tvRemainingLength      = (TextView) findViewById(R.id.tvRemaining);
 
 		tvUserName.setText("@" + user.getName());
-		tvScreenName.setText(user.getScreenName());
+		tvHandle.setText(user.getScreenName());
 		etBody.setText("");
 
 		ivProfileImage.setImageResource(0);
